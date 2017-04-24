@@ -3,7 +3,7 @@ extends KinematicBody2D
 
 const GRAVITY = 2000.0
 const MIN_WALK_SPEED = 50
-const JUMP_FORCE = 770
+const JUMP_FORCE = 730
 const MAX_WALK_SPEED = 270
 const MAX_ANIM_SPEED = 2.4
 
@@ -62,13 +62,13 @@ func _fixed_process(delta):
 	if walkLeft:
 		#print("left")
 		direction = -1
-		velocity.x -= 15
+		velocity.x -= 18
 		if velocity.x  < -MAX_WALK_SPEED:
 			velocity.x = -MAX_WALK_SPEED
 			
 	if walkRight:
 		direction = 1
-		velocity.x += 15
+		velocity.x += 18
 		if  velocity.x  > MAX_WALK_SPEED:
 			velocity.x = MAX_WALK_SPEED
 			
@@ -78,28 +78,12 @@ func _fixed_process(delta):
 		direction = 0
 	
 		if velocity.x < 0:
-			if velocity.x < -1:
-				animPlayer.play("break_left")
-			
-			velocity.x += abs(velocity.x)/5
-			
-			if velocity.x > -0.9:
-				
-				if not idle: animPlayer.play("idle")
-				idle = true
-				
+			velocity.x += abs(velocity.x)/2
 		elif velocity.x > 0:
-			if velocity.x > 1:
-				animPlayer.play("break_right")
-			velocity.x -= abs(velocity.x)/5
-			
-			if velocity.x < 0.9:
-			
-				if not idle:animPlayer.play("idle")
-				idle = true
+			velocity.x -= abs(velocity.x)/2
 		else:
-			#animPlayer.play("idle")
 			velocity.x = 0
+			
 	elif not walkLeft and not walkRight and not checkFloor():
 		if velocity.x < 0:
 			velocity.x += abs(velocity.x)/30
@@ -108,7 +92,6 @@ func _fixed_process(delta):
 			velocity.x -= abs(velocity.x)/30
 
 		else:
-			#animPlayer.play("idle")
 			velocity.x = 0
 			
 	if walkLeft and walkRight:
@@ -118,7 +101,7 @@ func _fixed_process(delta):
 			direction = -1
 			
 	#### end walking
-	#print(velocity.x)
+
 
 	
 	#####    shooting 
