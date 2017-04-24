@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=1]
+
+[ext_resource path="res://Tilesets/mytiles2.tres" type="TileSet" id=1]
+[ext_resource path="res://Tilesets/Basic_Tiles (1).png" type="Texture" id=2]
+[ext_resource path="res://Objects/player.tscn" type="PackedScene" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+
+mode = 0
+tile_set = ExtResource( 1 )
+cell/size = Vector2( 8, 8 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray( 3473432, 0, 3997816, 4, 4128880, 4, 4259944, 4, 4391008, 4, 4522072, 4, 4653136, 4, 4849680, 0, 4849688, 0, 4849696, 0, 4849704, 0, 4849712, 0, 4849720, 0, 4849728, 0, 4849736, 0 )
+
+[node name="OneWay" type="KinematicBody2D" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 482.798, 507.417 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 2.47147, 0, 0, 0.59409, 0.849906, 4.19466 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+one_way_collision/direction = Vector2( 0, 1 )
+one_way_collision/max_depth = 6.0
+collision/margin = 0.08
+
+[node name="Sprite" type="Sprite" parent="OneWay"]
+
+texture = ExtResource( 2 )
+region = true
+region_rect = Rect2( 72, 270, 48, 48 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OneWay"]
+
+transform/pos = Vector2( 0.849906, 4.19466 )
+transform/scale = Vector2( 2.47147, 0.59409 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="player" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 232.572, 551.865 )
+
+

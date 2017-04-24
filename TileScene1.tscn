@@ -1,0 +1,171 @@
+[gd_scene load_steps=7 format=1]
+
+[ext_resource path="res://Tilesets/Basic_Tiles (1).png" type="Texture" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[sub_resource type="ConvexPolygonShape2D" id=2]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -32, 32, -32, -14, 32, -32, 32, 32 )
+
+[sub_resource type="ConvexPolygonShape2D" id=3]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 32, -32, 32, 32, -32, 32, -32, -32 )
+
+[sub_resource type="ConvexPolygonShape2D" id=4]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 19, -32, 19, 32, -13, 32, -13, -32 )
+
+[sub_resource type="ConvexPolygonShape2D" id=5]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -32, 32, -32, -8, 32, -24, 32, 32 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="OneWay" type="Sprite" parent="."]
+
+transform/pos = Vector2( 112, 248 )
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 72, 270, 48, 48 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="OneWay"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 2.46154, 0, 0, 0.307692, 3.33786e-06, 5.99999 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OneWay/StaticBody2D"]
+
+transform/pos = Vector2( 3.33786e-06, 5.99999 )
+transform/scale = Vector2( 2.46154, 0.307692 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="GroundAngle1" type="Sprite" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 240, 144 )
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 170, 144, 64, 64 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="GroundAngle1"]
+
+transform/pos = Vector2( 1.14441e-05, 0 )
+input/pickable = false
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GroundAngle1/StaticBody2D"]
+
+build_mode = 0
+polygon = Vector2Array( -32, 32, -32, -14, 32, -32, 32, 32 )
+shape_range = Vector2( 0, 0 )
+trigger = false
+
+[node name="Ground" type="Sprite" parent="."]
+
+transform/pos = Vector2( 32, 32 )
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 48, 0, 64, 64 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Ground"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 3 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 45.0
+friction = 0.0
+bounce = 1.0
+
+[node name="collisionGround" type="CollisionPolygon2D" parent="Ground/StaticBody2D"]
+
+build_mode = 0
+polygon = Vector2Array( -32, -32, -32, 32, 32, 32, 32, -32 )
+shape_range = Vector2( 0, 0 )
+trigger = false
+
+[node name="GroundEdgeR" type="Sprite" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 109, 112 )
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 22, 0, 26, 64 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="GroundEdgeR"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 4 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GroundEdgeR/StaticBody2D"]
+
+build_mode = 0
+polygon = Vector2Array( -13, -32, -13, 32, 19, 32, 19, -32 )
+shape_range = Vector2( 0, 0 )
+trigger = false
+
+[node name="GroundAngle2" type="Sprite" parent="."]
+
+transform/pos = Vector2( 192, 48 )
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 143, 144, 64, 64 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="GroundAngle2"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 5 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GroundAngle2/StaticBody2D"]
+
+build_mode = 0
+polygon = Vector2Array( -32, 32, -32, -8, 32, -24, 32, 32 )
+shape_range = Vector2( 0, 0 )
+trigger = false
+
+
