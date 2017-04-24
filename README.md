@@ -1,2 +1,2 @@
-# pixelMan
+# PixelMan
 Test Godot Engine
