@@ -78,28 +78,12 @@ func _fixed_process(delta):
 		direction = 0
 	
 		if velocity.x < 0:
-			if velocity.x < -1:
-				animPlayer.play("break_left")
-			
 			velocity.x += abs(velocity.x)/5
-			
-			if velocity.x > -0.9:
-				
-				if not idle: animPlayer.play("idle")
-				idle = true
-				
 		elif velocity.x > 0:
-			if velocity.x > 1:
-				animPlayer.play("break_right")
-			velocity.x -= abs(velocity.x)/5
-			
-			if velocity.x < 0.9:
-			
-				if not idle:animPlayer.play("idle")
-				idle = true
+			velocity.x -= abs(velocity.x)/5	
 		else:
-			#animPlayer.play("idle")
 			velocity.x = 0
+			
 	elif not walkLeft and not walkRight and not checkFloor():
 		if velocity.x < 0:
 			velocity.x += abs(velocity.x)/30
