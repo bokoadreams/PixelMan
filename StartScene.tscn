@@ -2,37 +2,10 @@
 
 [ext_resource path="res://Tilesets/MyTileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Objects/enemy2.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Fonts/Super Plumber Brothers.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://Fonts/emulogic.ttf" type="DynamicFontData" id=4]
-[ext_resource path="res://MainGameMenuScript.gd" type="Script" id=5]
+[ext_resource path="res://Fonts/emulogic.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://MainGameMenuScript.gd" type="Script" id=4]
+[ext_resource path="res://Fonts/Super Plumber Brothers.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://Objects/ScoresLayer.tscn" type="PackedScene" id=6]
-
-[sub_resource type="StyleBoxFlat" id=1]
-
-content_margin/left = -1.0
-content_margin/right = -1.0
-content_margin/top = -1.0
-content_margin/bottom = -1.0
-bg_color = Color( 0.617188, 0.353967, 0.0988464, 1 )
-light_color = Color( 0.8, 0.8, 0.8, 1 )
-dark_color = Color( 0.8, 0.8, 0.8, 1 )
-border_size = 0
-border_blend = true
-draw_bg = true
-
-[sub_resource type="DynamicFont" id=2]
-
-font/size = 120
-font/use_mipmaps = false
-font/use_filter = false
-font/font = ExtResource( 3 )
-
-[sub_resource type="DynamicFont" id=3]
-
-font/size = 12
-font/use_mipmaps = true
-font/use_filter = true
-font/font = ExtResource( 4 )
 
 [sub_resource type="StyleBoxEmpty" id=4]
 
@@ -62,7 +35,7 @@ content_margin/right = -1.0
 content_margin/top = -1.0
 content_margin/bottom = -1.0
 
-[sub_resource type="StyleBoxEmpty" id=8]
+[sub_resource type="StyleBoxEmpty" id=10]
 
 content_margin/left = -1.0
 content_margin/right = -1.0
@@ -74,7 +47,34 @@ content_margin/bottom = -1.0
 font/size = 20
 font/use_mipmaps = false
 font/use_filter = false
-font/font = ExtResource( 4 )
+font/font = ExtResource( 3 )
+
+[sub_resource type="StyleBoxFlat" id=1]
+
+content_margin/left = -1.0
+content_margin/right = -1.0
+content_margin/top = -1.0
+content_margin/bottom = -1.0
+bg_color = Color( 0.617188, 0.353967, 0.0988464, 1 )
+light_color = Color( 0.8, 0.8, 0.8, 1 )
+dark_color = Color( 0.8, 0.8, 0.8, 1 )
+border_size = 0
+border_blend = true
+draw_bg = true
+
+[sub_resource type="DynamicFont" id=2]
+
+font/size = 120
+font/use_mipmaps = false
+font/use_filter = false
+font/font = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=3]
+
+font/size = 12
+font/use_mipmaps = true
+font/use_filter = true
+font/font = ExtResource( 3 )
 
 [node name="StartSceneRootNode" type="Node2D"]
 
@@ -110,6 +110,33 @@ offset = Vector2( 0, 0 )
 rotation = 0.0
 scale = Vector2( 1, 1 )
 
+[node name="MenuItems" type="ItemList" parent="CanvasLayer"]
+
+anchor/left = 1
+anchor/top = 1
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 638.0
+margin/top = 307.0
+margin/right = 317.0
+margin/bottom = 102.0
+custom_styles/cursor = SubResource( 4 )
+custom_styles/selected_focus = SubResource( 5 )
+custom_styles/bg_focus = SubResource( 6 )
+custom_styles/selected = SubResource( 7 )
+custom_styles/bg = SubResource( 10 )
+custom_fonts/font = SubResource( 9 )
+custom_colors/guide_color = Color( 0, 0, 0, 0 )
+custom_colors/font_color_selected = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_constants/vseparation = 37
+custom_constants/icon_margin = 15
+script/script = ExtResource( 4 )
+
 [node name="MainGameMenu" type="Panel" parent="CanvasLayer"]
 
 anchor/left = 1
@@ -120,10 +147,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 695.0
+margin/left = 693.0
 margin/top = 540.0
-margin/right = 264.0
-margin/bottom = 331.0
+margin/right = 262.0
+margin/bottom = 338.0
 custom_styles/panel = SubResource( 1 )
 
 [node name="GameTitle" type="Label" parent="CanvasLayer/MainGameMenu"]
@@ -162,32 +189,8 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="MenuItems" type="ItemList" parent="."]
-
-anchor/right = 3
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -478.89
-margin/top = 354.63
-margin/right = 189.89
-margin/bottom = 563.63
-custom_styles/cursor = SubResource( 4 )
-custom_styles/selected_focus = SubResource( 5 )
-custom_styles/bg_focus = SubResource( 6 )
-custom_styles/selected = SubResource( 7 )
-custom_styles/bg = SubResource( 8 )
-custom_fonts/font = SubResource( 9 )
-custom_colors/guide_color = Color( 0, 0, 0, 0 )
-custom_colors/font_color_selected = Color( 1, 1, 1, 1 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_constants/vseparation = 37
-custom_constants/icon_margin = 15
-script/script = ExtResource( 5 )
-
 [node name="ScoresLayer" parent="." instance=ExtResource( 6 )]
 
-[connection signal="item_selected" from="MenuItems" to="MenuItems" method="_on_MenuItems_item_selected"]
+[connection signal="item_selected" from="CanvasLayer/MenuItems" to="CanvasLayer/MenuItems" method="_on_MenuItems_item_selected"]
 
 

@@ -6,8 +6,8 @@ var pause_items = ["New game", "Exit"]
 var itemsListIconTexture = preload("res://sprites/star1.png")
 var itemsListEmptyIconTexture = preload("res://sprites/bonus/empty_cross1.png")
 var prevSelectedIndex
-var iconRegion = Rect2(0,0,100,50)
-var iconSize = Vector2(100.0,100.0)
+var iconRegion = Rect2(0,0,100,100)
+var iconSize = Vector2(64.0,64.0)
 
 func _ready():
 	grab_focus()
@@ -36,7 +36,7 @@ func set_pause_itemsList_params():
 	set_item_icon(0, itemsListIconTexture)
 	#set_item_icon_region(0, iconRegion)
 	prevSelectedIndex=0
-	set_icon_scale(0.6)
+	set_icon_scale(0.5)
 	#set_icon_mode(3)
 	#set_fixed_icon_size(iconSize)
 	

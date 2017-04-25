@@ -48,7 +48,7 @@ func set_pause_itemsList_params():
 	set_item_icon(0, itemsListIconTexture)
 	#set_item_icon_region(0, iconRegion)
 	prevSelectedIndex=0
-	set_icon_scale(0.6)
+	set_icon_scale(0.5)
 	#set_icon_mode(3)
 	#set_fixed_icon_size(iconSize)
 	

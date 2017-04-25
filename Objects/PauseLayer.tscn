@@ -1,9 +1,8 @@
-[gd_scene load_steps=13 format=1]
+[gd_scene load_steps=12 format=1]
 
 [ext_resource path="res://pauseScript2.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/emulogic.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://Fonts/PressStart2P.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://pause_items_list_script.gd" type="Script" id=4]
+[ext_resource path="res://pause_items_list_script.gd" type="Script" id=3]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -65,10 +64,10 @@ content_margin/bottom = -1.0
 
 [sub_resource type="DynamicFont" id=8]
 
-font/size = 30
+font/size = 20
 font/use_mipmaps = false
 font/use_filter = false
-font/font = ExtResource( 3 )
+font/font = ExtResource( 2 )
 
 [node name="PauseLayer" type="CanvasLayer"]
 
@@ -136,7 +135,7 @@ custom_colors/font_color_selected = Color( 1, 1, 1, 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_constants/vseparation = 30
 custom_constants/icon_margin = 15
-script/script = ExtResource( 4 )
+script/script = ExtResource( 3 )
 
 [connection signal="item_selected" from="pause_popup/ItemList" to="pause_popup/ItemList" method="_on_ItemList_item_selected"]
 
