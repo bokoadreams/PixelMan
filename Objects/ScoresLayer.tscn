@@ -9,21 +9,21 @@
 [ext_resource path="res://sprites/bonus/animated_cross/empty_cross5.png" type="Texture" id=7]
 [ext_resource path="res://sprites/bonus/cross_01.png" type="Texture" id=8]
 
+[sub_resource type="DynamicFont" id=1]
+
+font/size = 35
+font/use_mipmaps = false
+font/use_filter = false
+font/font = ExtResource( 1 )
+
 [sub_resource type="DynamicFont" id=2]
 
-font/size = 40
+font/size = 35
 font/use_mipmaps = false
 font/use_filter = false
 font/font = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=3]
-
-font/size = 40
-font/use_mipmaps = false
-font/use_filter = false
-font/font = ExtResource( 1 )
-
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=3]
 
 animations = [ {
 "frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
@@ -62,11 +62,11 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 223.0
-margin/top = 27.0
-margin/right = 390.0
-margin/bottom = 79.0
-custom_fonts/font = SubResource( 2 )
+margin/left = 266.0
+margin/top = 33.0
+margin/right = 433.0
+margin/bottom = 85.0
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 4
 text = "*0"
@@ -81,11 +81,11 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 607.0
-margin/top = 21.0
-margin/right = 808.0
-margin/bottom = 128.0
-custom_fonts/font = SubResource( 3 )
+margin/left = 584.0
+margin/top = 35.0
+margin/right = 785.0
+margin/bottom = 142.0
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 4
 text = "WORLD
@@ -100,9 +100,9 @@ script/script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Node"]
 
-transform/pos = Vector2( 203.006, 57.0541 )
+transform/pos = Vector2( 246.067, 57.0541 )
 transform/scale = Vector2( 0.7, 0.7 )
-frames = SubResource( 1 )
+frames = SubResource( 3 )
 animation = "default"
 frame = 4
 

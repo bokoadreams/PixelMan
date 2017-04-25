@@ -298,6 +298,8 @@ transform/pos = Vector2( 790.776, 633.022 )
 
 [node name="Enemies" type="Node" parent="."]
 
+editor/display_folded = true
+
 [node name="enemy2 2" parent="Enemies" groups=[
 "enemies",
 ] instance=ExtResource( 4 )]
@@ -473,6 +475,8 @@ trigger = false
 _update_shape_index = 1
 
 [node name="Coins" type="Node" parent="."]
+
+editor/display_folded = true
 
 [node name="CoinCross" parent="Coins" instance=ExtResource( 59 )]
 
