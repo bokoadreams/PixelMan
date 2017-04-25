@@ -1,15 +1,15 @@
 extends KinematicBody2D
 
 
-const GRAVITY = 2000.0
+const GRAVITY = 1000.0
 const MIN_WALK_SPEED = 50
-const JUMP_FORCE = 730
+
 const MAX_WALK_SPEED = 270
 const MAX_ANIM_SPEED = 2.4
-
+const MAX_JUMP_FORCE = 730
 var anim_speed = 0.0
 var WALK_SPEED = 230
-
+var JUMP_FORCE = 0
 
 var isManSiting = 0
 var isOnFloor = 0
@@ -122,7 +122,7 @@ func _fixed_process(delta):
 		get_parent().add_child(bi)
 		bi.add_collision_exception_with(self)
 		
-		bi.set_linear_velocity(Vector2(220.0*ss, 0))
+		bi.set_linear_velocity(Vector2(280.0*ss, 0))
 	
 	shooting = shoot
 	
@@ -145,7 +145,9 @@ func _fixed_process(delta):
 			
 	var motion = velocity * delta
 	motion = move(motion)
-	
+	if velocity.y < -500.0:
+		velocity.y = -300 
+	print(velocity.y)
 	if (is_colliding()):
 		checkEnemey()
 		
@@ -172,10 +174,14 @@ func _fixed_process(delta):
 			velocity = n.slide(velocity)
 			
 			if isOnFloor:
-				if jump:
-					velocity.y -= JUMP_FORCE
-					isOnFloor = 0
+				if jump :
+					velocity.y -= 30 * GRAVITY * delta
 					
+					#if velocity.y < -700:
+						#velocity.y = -700
+					
+					isOnFloor = 0
+			
 			if WALK_SPEED>0:
 				move(motion)
 		
